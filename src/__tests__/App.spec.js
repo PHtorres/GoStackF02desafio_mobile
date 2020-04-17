@@ -20,7 +20,7 @@ const actWait = async (amount = 0) => {
 
 const repositoryId = 'd6e43105-a559-45b7-8fd7-53416b415741';
 
-apiMock.onGet("projects").reply(200, [
+apiMock.onGet("repositories").reply(200, [
   {
     id: repositoryId,
     title: "Desafio React Native",
@@ -50,7 +50,7 @@ describe("Likes", () => {
     const { getByTestId } = render(<App />);
 
     apiMock
-      .onPost(`projects/${repositoryId}/like`)
+      .onPost(`repositories/${repositoryId}/like`)
       .reply(200, {
         id: repositoryId,
         title: "Desafio React Native",
@@ -68,7 +68,7 @@ describe("Likes", () => {
     expect(getByTestId(`repository-likes-${repositoryId}`)).toHaveTextContent("1 curtida");
 
     apiMock
-      .onPost(`projects/${repositoryId}/like`)
+      .onPost(`repositories/${repositoryId}/like`)
       .reply(200, {
         id: repositoryId,
         title: "Desafio React Native",

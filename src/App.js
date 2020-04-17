@@ -19,7 +19,7 @@ export default function App() {
   }, []);
 
   async function listRepositories() {
-    const response = await api.get('/projects');
+    const response = await api.get('/repositories');
     setRepositories(response.data);
     console.log(response.data);
   }

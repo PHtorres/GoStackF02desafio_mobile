@@ -8,7 +8,7 @@ export default function Repository({ repo }) {
     const [likes, setLikes] = useState(repo.likes);
 
     async function handleLikeRepository(id) {
-        const response = await api.post(`/projects/${id}/like`);
+        const response = await api.post(`/repositories/${id}/like`);
         if (response.status === 200){
             setLikes(likes+1);
         }
